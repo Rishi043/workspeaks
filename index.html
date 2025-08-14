@@ -550,24 +550,6 @@
     background-clip: text;
 }
 
-
-
-/* Footer Logo */
-.footer-logo-image {
-    height: 32px; /* Smaller for footer */
-    width: auto;
-    max-width: 120px;
-    object-fit: contain;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-}
-
-.footer-logo-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--dark);
-}
-
 /* Mobile Responsiveness for Logo */
 @media (max-width: 768px) {
     .logo-image {
@@ -654,15 +636,13 @@
     <div class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
             <!-- Logo Section - Replace the existing text logo -->
-            <div class="logo-container">
-                <!-- Option 1: Image Logo -->
-                <a href="#" class="flex items-center space-x-3 logo-link">
-                    <img src="logo3.png" alt="WORKSPEAKS Logo" class="logo-image">
-                    <span class="logo-text">WORKSPEAKS</span>
-                </a>
-                
-
-            </div>
+                <!-- Option 2: Magnifying Logo (add 'logo-magnify' class) -->
+                <div class="logo-container logo-magnify">
+                    <a href="#" class="flex items-center space-x-3 logo-link">
+               
+                        <span class="logo-text">WORKSPEAKS</span>
+                    </a>
+                </div>
             
             <div class="hidden md:flex space-x-8">
                 <a href="#work" class="nav-link">My Work</a>
@@ -1095,4 +1075,3 @@
     </script>
 </body>
 </html>
-
