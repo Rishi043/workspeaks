@@ -83,9 +83,9 @@
             width: 100%;
         }
 
-        /* Enhanced Hero Section with Background Image */
+/* Enhanced Hero Section with Background Image */
         .hero-3d {
-           
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://mir-s3-cdn-cf.behance.net/project_modules/fs/5278b973057517.5bfd226687bb7.jpg');
 
             min-height: 100vh;
             display: flex;
@@ -106,7 +106,7 @@
             margin-bottom: 1.5rem;
             transform: translateZ(30px);
             animation: float 6s ease-in-out infinite;
-            color: var(--dark);
+            color: white;
         }
 
         .hero-subtitle {
@@ -114,8 +114,8 @@
             margin-bottom: 3rem;
             transform: translateZ(20px);
             animation: float 6s ease-in-out infinite 0.5s;
-            color: var(--dark);
-        } 
+            color: white;
+        }
 
         /* Magical Text Glow Effect */
         .magic-text {
@@ -487,41 +487,205 @@
         @keyframes shimmer {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
-        }
+        } 
+
+/* Main Navigation Logo */
+.logo-container {
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    flex-shrink: 0; /* Add this to container too */
+}
+
+.logo-link {
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block; /* Add this for better control */
+}
+
+.logo-link:hover {
+    transform: translateY(-2px) scale(1.05);
+}
+
+.logo-image {
+    height: 50px;
+    width: 50px;
+    min-width: 50px !important; /* Force with !important */
+    max-width: 50px !important; /* Add max-width with !important */
+    aspect-ratio: 1 / 1; /* Force square aspect ratio */
+    object-fit: contain;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 2px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    box-shadow: 0 4px 15px rgba(124, 115, 255, 0.2);
+    flex-shrink: 0 !important; /* Force with !important */
+    display: block; /* Ensure block display */
+}
+
+/* Mobile specific fixes */
+@media (max-width: 768px) {
+    .logo-image {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        max-width: 50px !important;
+    }
+}
+
+.logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.logo-link:hover .logo-text {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+/* Footer Logo */
+.footer-logo-image {
+    height: 32px; /* Smaller for footer */
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.footer-logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+/* Mobile Responsiveness for Logo */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 32px;
+        max-width: 120px;
+    }
+    
+    .logo-text {
+        font-size: 1.25rem;
+    }
+    
+    .footer-logo-image {
+        height: 28px;
+        max-width: 100px;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .logo-container {
+        flex-shrink: 0;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    /* Hide logo text on very small screens, keep only image */
+    .mobile-hide-text .logo-text {
+        display: none;
+    }
+}
+
+/* Loading animation for logo */
+.logo-image {
+    animation: logoFadeIn 1s ease-out;
+}
+
+@keyframes logoFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effect for logo container */
+.logo-container:hover .logo-image {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Alternative: Text-only logo with gradient effect */
+.text-logo-only {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.text-logo-only:hover {
+    transform: translateY(-2px) scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(124, 115, 255, 0.3));
+}
     </style>
 </head>
 <body>
     <!-- THREE.JS CANVAS -->
     <canvas id="three-canvas"></canvas>
 
-    <!-- NAVIGATION -->
-    <nav class="nav-3d fixed w-full z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold text-gray-800" style="font-family: 'Cormorant Garamond', serif;">WORKSPEAKS</a>
+<!-- NAVIGATION SECTION - Replace your existing nav section -->
+<nav class="nav-3d fixed w-full z-50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo Section - Replace the existing text logo -->
+            <div class="logo-container">
+                <!-- Option 1: Image Logo -->
+                <a href="#" class="flex items-center space-x-3 logo-link">
+                    <img src="images/logo3.png" alt="WORKSPEAKS Logo" class="logo-image">
+                    <span class="logo-text">WORKSPEAKS</span>
+                </a>
                 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#work" class="nav-link">My Work</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#process" class="nav-link">Process</a>
-                    <a href="#contact" class="nav-link">Order</a>
-                </div>
-                
-                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                    <i id="mobile-menu-icon" class="fas fa-bars text-gray-700 text-xl"></i>
-                </button>
+
             </div>
-        </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg py-4">
-            <div class="flex flex-col px-6">
-                <a href="#work" class="py-2 text-gray-700 hover:text-purple-600 transition">My Work</a>
-                <a href="#about" class="py-2 text-gray-700 hover:text-purple-600 transition">About</a>
-                <a href="#process" class="py-2 text-gray-700 hover:text-purple-600 transition">Process</a>
-                <a href="#contact" class="py-2 text-gray-700 hover:text-purple-600 transition">Order</a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#work" class="nav-link">My Work</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#contact" class="nav-link">Order</a>
             </div>
+            
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i id="mobile-menu-icon" class="fas fa-bars text-gray-700 text-xl"></i>
+            </button>
         </div>
-    </nav>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-lg py-4">
+        <div class="flex flex-col px-6">
+            <a href="#work" class="py-2 text-gray-700 hover:text-purple-600 transition">My Work</a>
+            <a href="#about" class="py-2 text-gray-700 hover:text-purple-600 transition">About</a>
+            <a href="#process" class="py-2 text-gray-700 hover:text-purple-600 transition">Process</a>
+            <a href="#contact" class="py-2 text-gray-700 hover:text-purple-600 transition">Order</a>
+        </div>
+    </div>
+</nav>
 
     <!-- HERO SECTION -->
     <section class="hero-3d pt-16">
